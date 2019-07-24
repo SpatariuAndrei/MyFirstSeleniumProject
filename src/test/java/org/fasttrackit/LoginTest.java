@@ -17,6 +17,31 @@ public class LoginTest {
        driver.get("http://fasttrackit.org/selenium-test/");
        WebElement accountButton = driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a"));
        accountButton.click();
+      WebElement loginLink = driver.findElement (By.cssSelector("#header-account > div > ul > li.last > a"));
+      loginLink.click();
+      driver.findElement(By.cssSelector("#email")).sendKeys("spatariuandrei@yahoo.com");
+       driver.findElement(By.cssSelector("#pass")).sendKeys("12345678");
+       driver.findElement(By.cssSelector("#send2")).click();
+      driver.quit();
+   }
+
+       @Test
+
+       public void negativeTestLogin() {
+
+           System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
+           WebDriver driver = new ChromeDriver();
+           driver.get("http://fasttrackit.org/selenium-test/");
+           WebElement accountButton = driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a"));
+           accountButton.click();
+           WebElement loginLink = driver.findElement (By.cssSelector("#header-account > div > ul > li.last > a"));
+           loginLink.click();
+           driver.findElement(By.cssSelector("#email")).sendKeys("spatariuandrei@yahoo.com");
+           driver.findElement(By.cssSelector("#pass")).sendKeys("222");
+           driver.findElement(By.cssSelector("#send2")).click();
+           driver.quit();
+
+
 
 
 }
